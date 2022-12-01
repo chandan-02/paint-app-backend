@@ -12,6 +12,10 @@ const paintScheme = new mongoose.Schema(
             require: [true, "Please provide String"],
             trim: true,
         },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user',
+        },
     },
     { timestamps: true }
 );
