@@ -81,6 +81,7 @@ exports.likePaint = asyncHandler(async (req, res) => {
     try {
         const data = await Paint.findOne({ _id: id });
         Object.assign(data, { likecount: !data.likecount.includes(req.user.userid) ? [...data.likecount, req.user.userid] : data.likecount })
+        await data.save();
         return res.status(200).json({ success: true, data: "liked" });
     } catch (error) {
         throw new ErrorResponse(`Server error :${error}`, 400);
