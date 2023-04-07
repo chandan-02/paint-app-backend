@@ -69,7 +69,7 @@ exports.deletePaint = asyncHandler(async (req, res) => {
 */
 exports.getAllPaintPublic = asyncHandler(async (req, res) => {
     try {
-        const data = await Paint.find({ type: "public" });
+        const data = await Paint.find({ type: "public" }).populate('user');
         return res.status(200).json({ success: true, data });
     } catch (error) {
         throw new ErrorResponse(`Server error :${error}`, 400);
