@@ -16,6 +16,17 @@ const paintScheme = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'user',
         },
+        type: {
+            type: String,
+            enum: ["public", "private"],
+            default: "public",
+            trim: true,
+        },
+        likecount: {
+            type: Number,
+            default: 0,
+            trim: true,
+        }
     },
     { timestamps: true }
 );
