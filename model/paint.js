@@ -23,8 +23,8 @@ const paintScheme = new mongoose.Schema(
             trim: true,
         },
         likecount: {
-            type: Number,
-            default: 0,
+            type: Array,
+            default: [],
             trim: true,
         }
     },
